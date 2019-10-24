@@ -1,28 +1,15 @@
-# @widgetjs/tree
+# three-map
 
-[![NPM version](https://img.shields.io/npm/v/@widgetjs/tree.svg?style=flat-square)](https://npmjs.org/package/@widgetjs/tree)
-[![David deps](https://img.shields.io/david/daweilv/treejs.svg?style=flat-square)](https://david-dm.org/daweilv/treejs)
-[![npm downloads](https://img.shields.io/npm/dm/@widgetjs/tree.svg?style=flat-square)](https://www.npmjs.com/package/@widgetjs/tree)
-[![gzip size](https://flat.badgen.net/bundlephobia/minzip/@widgetjs/tree)](https://bundlephobia.com/result?p=@widgetjs/tree)
-
-A lightweight tree widget.
-
-## Features
-
-* Compatible with VanillaJS / React / Vue
-* Tiny size after gzip
-* Zero dependence
+Map by three.js
 
 ## Demo
 
-[Online Demo](https://daweilv.github.io/treejs/)
-
-![demo.gif](https://daweilv.github.io/treejs/demo.gif)
+[Online Demo](https://iimmonica.github.io/three-map/)
 
 ## Install
 
 ```bash
-npm i -S @widgetjs/tree
+npm i -S three-map
 ```
 
 ## Usage
@@ -30,49 +17,27 @@ npm i -S @widgetjs/tree
 ### React/Vue usage
 
 ```js
-import Tree from '@widgetjs/tree';
+import ThreeMap from 'three-map';
 ```
 
 ### VanillaJS usage
 
 ```html
-<script src="path/to/tree.min.js"></script>
+<script src="path/to/three-map.min.js"></script>
 ```
 
 ## Initialize
 
-`new Tree(treeContainer, parameters)`, returns initialized Tree instance.
+`new ThreeMap(mapContainer, parameters)`, returns initialized ThreeMap instance.
 
-* `treeContainer` - string - css selector of the tree container(`document.querySelector` inside).
+* `mapContainer` - string - css selector of the tree container(`document.querySelector` inside).
 * `parameters` - object - options of the tree.
 
 For example:
 
 ```js
-var myTree = new Tree('#container', {
-  url: '/api/treeJson',
-});
+var myThreeMap = new ThreeMap('#container');
 ```
-
-## Basic Node Format
-
-```json
-{
-  "id": "unique_ID",
-  "text": "node-0",
-  "attributes": {},
-  "children": [],
-  "check": true
-}
-```
-
-| Name       | Type    | Description                         | Required |
-| ---------- | ------- | ----------------------------------- | -------- |
-| id         | any     | unique id                           | Required |
-| text       | string  | tree node label                     | Required |
-| attributes | object  | custom attributes of the node       | Optional |
-| children   | array   | children of current node            | Optional |
-| check      | boolean | whether the node is selected or not | Optional |
 
 ## Parameters
 
@@ -208,5 +173,5 @@ var myTree = new Tree('#container', {
 
 ---
 
-Like @widgetjs/tree? just 🌟 star the project!
-[Create issues](https://github.com/daweilv/treejs/issues) if you find bug.
+Like three-map? just 🌟 star the project!
+[Create issues](https://github.com/iimmonica/three-map/issues) if you find bug.

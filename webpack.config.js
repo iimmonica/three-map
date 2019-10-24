@@ -1,21 +1,22 @@
 const webpack = require('webpack');
+const WebpackDevServer = require("webpack-dev-server");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-    .BundleAnalyzerPlugin;
 
 module.exports = {
     mode: 'none',
-    devtool: 'source-map',
+    // devtool: 'source-map',
     entry: {
-        tree: './src/index.js',
-        'tree.min': './src/index.js',
+        app: ["./src/PointMap.js"],
+        'three-map': './src/PointMap.js',
+        'three-map.min': './src/PointMap.js',
     },
     output: {
         filename: '[name].js',
+        publicPath: '/dist/',
         libraryExport: 'default',
-        library: 'Tree',
+        library: 'ThreeMap',
         libraryTarget: 'umd',
     },
     module: {
@@ -77,8 +78,13 @@ module.exports = {
             assetNameRegExp: /\.min\.css$/,
         }),
         new webpack.BannerPlugin(
-            'treejs\n@version 1.8.0\n@see https://github.com/daweilv/treejs'
+            'three-map\n@version 1.0.0\n@see https://github.com/iimmonica/three-map'
         ),
-        new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
+        new webpack.HotModuleReplacementPlugin(),
     ],
+    devServer: {
+        contentBase: 'sist/',
+        inline: true,
+        hot: true
+    }
 };
