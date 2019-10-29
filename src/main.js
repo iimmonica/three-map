@@ -5,7 +5,7 @@ import ThreeMapLand from './land.js'
 import ThreeMapLights from './lights.js'
 import ThreeMapBubbles from './bubbles.js'
 
-export default function ThreeMap(containerStr, mddid, options) {
+export default function ThreeMap(containerStr, options) {
     
   const defaultOptions = {
     baseLongitude: -30,     // 地球切割经度
@@ -76,13 +76,6 @@ export default function ThreeMap(containerStr, mddid, options) {
     this.skipCount = 0
     this.render()
 
-    if (mddid) {
-      this.mddid = mddid
-      this.loadLand().then(function() {
-        this.loadLights()
-      }.bind(this))
-      // .then(this.bubble.bind(this))
-    }
   }
   
   return this
@@ -121,6 +114,15 @@ ThreeMap.prototype.removeAllObject3D = function() {
   }
 
   this.Object3Ds = new Array()
+
+}
+
+ThreeMap.prototype.load = function(mddid) {
+
+  this.mddid = mddid
+  return this.loadLand().then(function() {
+    this.loadLights()
+  }.bind(this))
 
 }
 
@@ -167,9 +169,9 @@ ThreeMap.prototype.loadLights = function() {
     this.addObject3D(light)
 
   }.bind(this))
-  // .catch(function (error) {
-  //   console.log('Light points data request fail!')
-  // })
+  .catch(function (error) {
+    console.log('Light points data request fail!')
+  })
   
 }
 
@@ -182,9 +184,9 @@ ThreeMap.prototype.bubble = function(data) {
       this.setBubble(response.data.data)
   
     }.bind(this))
-    // .catch(function (error) {
-    //   console.log('Bubble data request fail!')
-    // })
+    .catch(function (error) {
+      console.log('Bubble data request fail!')
+    })
   }
 }
 
