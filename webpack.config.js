@@ -6,11 +6,10 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
     mode: 'none',
-    // devtool: 'source-map',
     entry: {
-        app: ["./src/PointMap.js"],
-        'three-map': './src/PointMap.js',
-        'three-map.min': './src/PointMap.js',
+        app: ["./src/main.js"],
+        'three-map': './src/main.js',
+        'three-map.min': './src/main.js',
     },
     output: {
         filename: '[name].js',
