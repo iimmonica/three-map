@@ -67,6 +67,6 @@
   "homepage": "https://github.com/iimmonica/three-map#readme",
   "dependencies": {
     "axios": "^0.21.1",
-    "three": "^0.109.0"
+    "three": "^0.125.0"
   }
 }
